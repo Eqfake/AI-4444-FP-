@@ -1,1 +1,13 @@
-The following is instructions on running the corrisponding code. 
+The following is instructions on running the corrisponding code.
+The code can be can from JupyterLab or any environment that can handle python code. 
+It is highly recommend to install CUDA drivers with the following command:
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+Then run the following command to ensure your CUDA enable graphics card has been found. 
+
+import torch
+print(torch.cuda.is_available())  # Should return True
+print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "No CUDA device")
+
+If you do not have a CUDA enable GPU please turn down sample size and hidden layer size or the training of the model will take a long time. Epochs can also be reduced but will reduce accuracy on some models outcomes. 
